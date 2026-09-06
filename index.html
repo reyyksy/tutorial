@@ -1,1 +1,63 @@
-hii
+<!doctype html>
+<html lang="id">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Panduan instalasi dan penggunaan aplikasi absensi.">
+	<title>Panduan Absensi</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+	<script src="script.js" defer></script>
+</head>
+<body>
+	<header class="topbar">
+		<a class="brand" href="#mulai"><span class="brand-mark">A</span><span>Absensi <small>docs</small></span></a>
+		<nav class="topnav" aria-label="Navigasi utama"><a href="#mulai">Mulai</a><a href="#install">Instalasi</a><a href="#jalankan">Penggunaan</a></nav>
+		<a class="github-link" href="https://github.com/reyyksy/absensi" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+	</header>
+
+	<main>
+		<section class="hero" id="mulai">
+			<div class="hero-copy"><p class="eyebrow"><span class="status-dot"></span> Dokumentasi proyek</p><h1>Jalankan aplikasi absensi dengan tenang.</h1><p class="hero-text">Panduan singkat untuk mengunduh, memasang, dan menjalankan aplikasi absensi di komputer lokal.</p><div class="hero-actions"><a class="button button-primary" href="#install">Mulai instalasi <span aria-hidden="true">↓</span></a><a class="button button-quiet" href="https://github.com/reyyksy/absensi" target="_blank" rel="noreferrer">Lihat repository <span aria-hidden="true">↗</span></a></div></div>
+			<aside class="hero-note"><span class="note-label">Yang dibutuhkan</span><strong>Node.js + Git</strong><p>Waktu setup sekitar 5 menit.</p><div class="mini-line"><span></span><span></span><span></span></div></aside>
+		</section>
+
+		<div class="layout">
+			<aside class="side-nav" aria-label="Daftar isi"><p>Di halaman ini</p><a class="active" href="#install">01 <span>Persiapan</span></a><a href="#download">02 <span>Unduh repository</span></a><a href="#jalankan">03 <span>Jalankan aplikasi</span></a><a href="#password">04 <span>Password admin</span></a><a href="#hasil">05 <span>Hasil absensi</span></a></aside>
+			<div class="content">
+				<section class="doc-section" id="install">
+					<div class="section-heading"><span class="step-number">01</span><div><p class="kicker">Persiapan</p><h2>Cek tools terlebih dahulu</h2></div></div>
+					<p class="section-intro">Belum punya tools? Pilih cara instalasi di bawah. Setelah selesai, kembali ke bagian cek versi.</p>
+					<div class="install-grid">
+						<article class="install-card"><div class="install-card-head"><span class="os-label">Windows</span><span class="tag">PowerShell</span></div><p>Instal Node.js dan Git lewat terminal:</p><div class="code-box install-code"><code>winget install OpenJS.NodeJS.LTS Git.Git</code><button class="copy-button" data-copy="winget install OpenJS.NodeJS.LTS Git.Git" aria-label="Salin perintah instalasi Windows">Salin</button></div><a class="install-link" href="https://nodejs.org/en/download" target="_blank" rel="noreferrer">Instal lewat GUI / browser ↗</a></article>
+						<article class="install-card"><div class="install-card-head"><span class="os-label">Linux</span><span class="tag">Terminal</span></div><p>Untuk Debian atau Ubuntu:</p><div class="code-box install-code"><code>sudo apt update<br>sudo apt install -y nodejs npm git</code><button class="copy-button" data-copy="sudo apt update; sudo apt install -y nodejs npm git" aria-label="Salin perintah instalasi Linux">Salin</button></div><a class="install-link" href="https://nodejs.org/en/download" target="_blank" rel="noreferrer">Instal lewat GUI / browser ↗</a></article>
+						<article class="install-card"><div class="install-card-head"><span class="os-label">macOS</span><span class="tag">Terminal</span></div><p>Jika Homebrew sudah terpasang:</p><div class="code-box install-code"><code>brew install node git</code><button class="copy-button" data-copy="brew install node git" aria-label="Salin perintah instalasi macOS">Salin</button></div><a class="install-link" href="https://nodejs.org/en/download" target="_blank" rel="noreferrer">Instal lewat GUI / browser ↗</a></article>
+					</div>
+					<p class="install-note"><strong>GUI / browser:</strong> buka halaman unduhan resmi, pilih installer sesuai sistem operasi, lalu ikuti langkah <em>Next</em> sampai selesai. Git dapat diunduh dari <a href="https://git-scm.com/downloads" target="_blank" rel="noreferrer">git-scm.com/downloads</a>.</p>
+					<p class="section-intro check-intro">Jika tools sudah terpasang, jalankan perintah berikut. Jika muncul nomor versi, berarti siap digunakan.</p>
+					<div class="tool-checker"><div class="checker-head"><strong>Pilih sistem operasi</strong><span id="check-status">Belum dicek</span></div><div class="os-tabs" role="tablist" aria-label="Sistem operasi"><button class="os-tab active" data-os="windows" role="tab" aria-selected="true">Windows</button><button class="os-tab" data-os="unix" role="tab" aria-selected="false">Linux / macOS</button></div><div class="os-panel active" data-panel="windows"><p class="terminal-label">Jalankan di PowerShell</p><div class="code-box"><code>node --version<br>npm --version<br>git --version</code><button class="copy-button" data-copy="node --version; npm --version; git --version" aria-label="Salin perintah Windows">Salin</button></div></div><div class="os-panel" data-panel="unix" hidden><p class="terminal-label">Jalankan di Terminal</p><div class="code-box"><code>node --version<br>npm --version<br>git --version</code><button class="copy-button" data-copy="node --version; npm --version; git --version" aria-label="Salin perintah Linux atau macOS">Salin</button></div></div><label class="check-row"><input type="checkbox" id="tools-ready"><span>Saya sudah melihat nomor versi untuk semua perintah.</span></label></div>
+				</section>
+
+				<section class="doc-section" id="download">
+					<div class="section-heading"><span class="step-number">02</span><div><p class="kicker">Unduh source code</p><h2>Pilih cara yang paling nyaman</h2></div></div><p class="section-intro">Repository resmi aplikasi tersedia di GitHub. Pilih salah satu cara berikut.</p>
+					<div class="option-grid"><article class="option-card recommended"><div class="card-top"><span class="card-icon">⌘</span><span class="tag">Disarankan untuk developer</span></div><h3>Clone lewat CLI</h3><p>Salin repository langsung dari terminal. Cara ini mudah untuk update berikutnya.</p><div class="code-box"><code>gh repo clone reyyksy/absensi</code><button class="copy-button" data-copy="gh repo clone reyyksy/absensi" aria-label="Salin perintah clone">Salin</button></div><p class="alternative">Belum punya GitHub CLI? Gunakan cara Git biasa:</p><div class="code-box compact"><code>git clone https://github.com/reyyksy/absensi.git</code><button class="copy-button" data-copy="git clone https://github.com/reyyksy/absensi.git" aria-label="Salin perintah Git clone">Salin</button></div></article><article class="option-card"><div class="card-top"><span class="card-icon">↓</span><span class="tag neutral">Tanpa terminal</span></div><h3>Unduh dari GitHub</h3><p>Cocok jika belum terbiasa memakai command line.</p><ol class="small-steps"><li>Buka repository di GitHub.</li><li>Klik tombol <strong>Code</strong>.</li><li>Pilih <strong>Download ZIP</strong>.</li><li>Ekstrak file ZIP ke folder pilihan.</li></ol><a class="text-link" href="https://github.com/reyyksy/absensi" target="_blank" rel="noreferrer">Buka repository GitHub <span aria-hidden="true">↗</span></a></article></div>
+				</section>
+
+				<section class="doc-section" id="jalankan">
+					<div class="section-heading"><span class="step-number">03</span><div><p class="kicker">Instalasi & penggunaan</p><h2>Pasang dependency, lalu jalankan</h2></div></div><p class="section-intro">Masuk ke folder hasil clone. Contoh di bawah menggunakan folder <code>absensi</code>.</p>
+					<div class="instruction-block"><span class="instruction-label">01 / Masuk folder proyek</span><div class="code-box"><code>cd absensi</code><button class="copy-button" data-copy="cd absensi" aria-label="Salin perintah masuk folder">Salin</button></div></div><div class="instruction-block"><span class="instruction-label">02 / Install dependency</span><div class="code-box"><code>npm install</code><button class="copy-button" data-copy="npm install" aria-label="Salin perintah install">Salin</button></div></div><div class="instruction-block"><span class="instruction-label">03 / Jalankan aplikasi</span><div class="code-box"><code>node src/server.js</code><button class="copy-button" data-copy="node src/server.js" aria-label="Salin perintah start">Salin</button></div></div><div class="callout"><span class="callout-icon">i</span><p>Setelah server aktif, buka <a href="http://localhost" target="_blank" rel="noreferrer">http://localhost</a> di browser.</p></div>
+				</section>
+
+				<section class="doc-section" id="password">
+					<div class="section-heading"><span class="step-number">04</span><div><p class="kicker">Opsional</p><h2>Atur password admin</h2></div></div><p class="section-intro">Atur password sebelum menjalankan server. Pilih perintah sesuai sistem operasi.</p><div class="password-grid"><div><span class="instruction-label">Windows · sementara</span><div class="code-box"><code>$env:ADMIN_PASSWORD = "passwordbaru"</code><button class="copy-button" data-copy="$env:ADMIN_PASSWORD = &quot;passwordbaru&quot;" aria-label="Salin password sementara">Salin</button></div></div><div><span class="instruction-label">Windows · permanen</span><div class="code-box"><code>[System.Environment]::SetEnvironmentVariable("ADMIN_PASSWORD", "passwordbaru", "User")</code><button class="copy-button" data-copy="[System.Environment]::SetEnvironmentVariable(&quot;ADMIN_PASSWORD&quot;, &quot;passwordbaru&quot;, &quot;User&quot;)" aria-label="Salin password permanen Windows">Salin</button></div></div><div><span class="instruction-label">Linux / macOS · permanen</span><div class="code-box"><code>export ADMIN_PASSWORD="passwordbaru"</code><button class="copy-button" data-copy="export ADMIN_PASSWORD=&quot;passwordbaru&quot;" aria-label="Salin password Linux dan macOS">Salin</button></div></div></div><p class="muted-note">Ganti <code>passwordbaru</code> dengan password pilihanmu. Perintah sementara hanya berlaku di terminal yang sedang terbuka.</p>
+				</section>
+
+				<section class="doc-section final-section" id="hasil"><div class="section-heading"><span class="step-number">05</span><div><p class="kicker">Selesai</p><h2>Hasil absensi tersimpan otomatis</h2></div></div><p class="section-intro">File Excel hasil absensi akan dibuat di folder berikut:</p><div class="path-display"><span class="folder-icon">▰</span><code>data/exports/</code></div><p class="stop-note">Untuk menghentikan server, tekan <kbd>Ctrl</kbd> + <kbd>C</kbd> di terminal.</p></section>
+			</div>
+		</div>
+	</main>
+	<footer><span>Absensi docs</span><span>Panduan instalasi lokal</span><a href="https://github.com/reyyksy/absensi" target="_blank" rel="noreferrer">Repository ↗</a></footer>
+</body>
+</html>
